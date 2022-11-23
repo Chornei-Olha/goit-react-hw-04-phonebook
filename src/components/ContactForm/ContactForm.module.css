@@ -17,6 +17,7 @@
   .input {
     height: 40px;
     padding: 0 10px 0 10px;
+    margin-right: 50px;
   
     border: 1px solid var(--second-bg-color);
     outline: none;

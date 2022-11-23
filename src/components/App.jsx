@@ -8,14 +8,16 @@ import Message from './Message';
 import css from './App.module.css';
 
 function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem('contacts'));
+  });
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    parsedContacts ? setContacts(parsedContacts) : setContacts([]);
-  }, []);
+  // useEffect(() => {
+  //   const contacts = localStorage.getItem('contacts');
+  //   const parsedContacts = JSON.parse(contacts);
+  //   parsedContacts ? setContacts(parsedContacts) : setContacts([]);
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
